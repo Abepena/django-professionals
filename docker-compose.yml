@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  web:
+    build: . #Look in current directory for Dockerfile to build
+    command: python /code/manage.py runserver 0.0.0.0:8000 #run this command to start up local server
+    volumes:
+      - .:/code  # syncs Docker filesystem with local computer
+    ports:
+      - 8000:8000 #expose this port for Django (default)
